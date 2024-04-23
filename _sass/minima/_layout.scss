@@ -2,8 +2,8 @@
  * Site header
  */
 .site-header {
-  border-top: 5px solid $border-color-03;
-  border-bottom: 1px solid $border-color-01;
+  border-top: 0;
+  border-bottom: 0;
   min-height: $spacing-unit * 1.865;
   line-height: $base-line-height * $base-font-size * 2.25;
 
@@ -329,6 +329,34 @@
   }
 }
 
+
+#toc {
+  position: fixed;
+  left: 20px; /* 调整左边距 */
+  top: 50px; /* 调整上边距 */
+  max-width: 300px; /* 设置最大宽度 */
+  max-height: calc(100vh - 100px); /* 调整最大高度 */
+  overflow-y: auto; /* 添加滚动条 */
+  white-space: normal; /* 自动换行 */
+}
+
+/* 可以根据需要修改样式 */
+#toc ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#toc ul ul {
+  margin-left: 20px;
+}
+
+#toc a {
+  text-decoration: none;
+}
+
+#toc a:hover {
+  text-decoration: underline;
+}
 
 
 /**

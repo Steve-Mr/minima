@@ -26,6 +26,12 @@ layout: base
       {%- endif -%}</p>
   </header>
 
+  <div class="toc-container">
+    <div class="toc">
+      {{ content | toc_only }}
+    </div>
+  </div>
+
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
