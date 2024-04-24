@@ -213,6 +213,10 @@
   @include relative-font-size(1.75);
 }
 
+.archive-list-heading {
+  @include relative-font-size(1.2);
+}
+
 .post-list {
   margin-left: 0;
   list-style: none;
@@ -220,6 +224,11 @@
   > li {
     margin-bottom: $spacing-unit;
   }
+}
+
+.archive-list {
+  margin-left: 0;
+  list-style: none;
 }
 
 .post-meta {
@@ -232,6 +241,18 @@
   @include relative-font-size(1.5);
 }
 
+.archive-link {
+  margin-left: 10px;
+  @include relative-font-size(1.2);
+}
+
+.post-meta-container {
+  display: grid;
+  // grid-template-columns: min-content 1fr; /* 第一列最小宽度，第二列剩余空间 */
+  grid-template-columns: minmax(100px, max-content) 1fr; /* 第一列最小宽度为100px，最大宽度为内容的宽度，第二列剩余空间 */
+  align-items: baseline; /* 基线对齐 */
+  gap: 10px; /* 间距 */
+}
 
 
 /**
