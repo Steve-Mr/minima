@@ -149,7 +149,7 @@ a {
   padding-left: $spacing-unit * .5;
   @include relative-font-size(1.125);
   font-style: italic;
-
+  font-family: $base-font-family;
   > :last-child {
     margin-bottom: 0;
   }
