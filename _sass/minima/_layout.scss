@@ -361,6 +361,10 @@
 .excerpt-text > h2 {
   display: none;
 }
+.excerpt-text > blockquote {
+  @include relative-font-size(0.8);
+  line-height: 1.4;
+}
 
 #toc {
   font-family: 'Noto Sans SC', sans-serif;
