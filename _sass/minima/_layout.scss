@@ -239,11 +239,13 @@
 .post-link {
   display: block;
   @include relative-font-size(1.5);
+  font-weight: bold; /* 设置字体为粗体 */
 }
 
 .archive-link {
   margin-left: 10px;
   @include relative-font-size(1.2);
+  // font-weight: bold; /* 设置字体为粗体 */
 }
 
 .post-meta-container {
@@ -352,10 +354,16 @@
 
 .excerpt-text {
   font-size: 16px; /* 比正文字号小一号 */
+  @include relative-font-size(0.8);
   /* 如果需要设置其他样式，比如字体颜色、行高等，也可以在这里添加 */
+}
+.excerpt-text > h1,
+.excerpt-text > h2 {
+  display: none;
 }
 
 #toc {
+  font-family: 'Noto Sans SC', sans-serif;
   position: fixed;
   left: 20px; /* 调整左边距 */
   top: 50px; /* 调整上边距 */
