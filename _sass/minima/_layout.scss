@@ -239,13 +239,15 @@
 .post-link {
   display: block;
   @include relative-font-size(1.5);
-  font-weight: bold; /* 设置字体为粗体 */
+  // font-weight: bold; /* 设置字体为粗体 */
 }
 
 .archive-link {
   margin-left: 10px;
   @include relative-font-size(1.2);
   // font-weight: bold; /* 设置字体为粗体 */
+  text-decoration: none;
+
 }
 
 .post-meta-container {
@@ -331,30 +333,39 @@
  * Pagination navbar
  */
 .pagination {
-  margin-bottom: $spacing-unit;
-  @extend .social-media-list;
-  li {
-    a, div {
-      min-width: 41px;
-      text-align: center;
-      box-sizing: border-box;
-    }
-    div {
-      display: block;
-      padding: $spacing-unit * .25;
-      border: 1px solid transparent;
+  // margin-bottom: $spacing-unit;
+  // @extend .social-media-list;
 
-      &.pager-edge {
-        color: $border-color-01;
-        border: 1px dashed;
-      }
+  // p {
+  //   float: left;
+  //   margin: 5px 10px 5px 0;
+  //   &:last-of-type { margin-right: 0 }
+  //   a {
+  //     display: block;
+  //     padding: 10px 12px;
+  //     border: 1px solid $border-color-01;
+  //   }
+    a, div {
+      min-width: 20px;
+      text-align: left;
     }
-  }
+  //   div {
+  //     display: block;
+  //     padding: $spacing-unit * .25;
+  //     border: 1px solid transparent;
+
+  //     &.pager-edge {
+  //       color: $border-color-01;
+  //       border: 1px dashed;
+  //     }
+  //   }
+  // }
+  display: flex;
 }
 
 .excerpt-text {
   font-size: 16px; /* 比正文字号小一号 */
-  @include relative-font-size(0.8);
+  @include relative-font-size(1.0);
   /* 如果需要设置其他样式，比如字体颜色、行高等，也可以在这里添加 */
 }
 .excerpt-text > h1,
@@ -362,7 +373,7 @@
   display: none;
 }
 .excerpt-text > blockquote {
-  @include relative-font-size(0.8);
+  @include relative-font-size(1.0);
   line-height: 1.4;
 }
 
