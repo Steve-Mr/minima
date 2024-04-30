@@ -2,36 +2,17 @@
 
 // Define defaults for each variable.
 
-// @font-face {
-//   font-family: "Noto Serif SC";
-//   // src: url(../../assets/fonts/NotoSerifSC-Regular.otf) format(opentype);
-//   src: url(../../assets/fonts/SourceHanSerifCN-Regular.woff2) format(woff2);
-//   font-weight: 400;
-//   font-style: normal;
-// }
+.noto-serif-sc-regular {
+  font-family: "Noto Serif SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: "Noto Serif SC";
-//   src: url(../../assets/fonts/SourceHanSerifCN-Bold.woff2) format(woff2);
-//   font-weight: 700;
-//   font-style: normal;
-// }
-
-// @font-face {
-//   font-family: "Noto Sans SC";
-//   src: url(../../assets/fonts/NotoSansSC-Regular.woff2) format(woff2);
-//   font-weight: 400;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
-// @font-face {
-//   font-family: "Noto Sans SC";
-//   src: url(../../assets/fonts/NotoSansSC-Bold.woff2) format(woff2);
-//   font-weight: 700;
-//   font-style: normal;
-//   font-display: swap;
-// }
+.noto-serif-sc-bold {
+  font-family: "Noto Serif SC", serif;
+  font-weight: 700;
+  font-style: normal;
+}
 
 $base-font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif !default;
 $code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
