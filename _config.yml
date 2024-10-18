@@ -25,6 +25,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-toc
   - jekyll-paginate
+  - jekyll-sitemap
 
 paginate: 2
 
