@@ -422,7 +422,7 @@
   gap: 20px; /* 设置子元素之间的间距 */
 
   $first-calculation: calc((100vw - #{$content-width} + #{$spacing-unit}) / 2);
-  $second-calculation: calc($first-calculation - 300px);
+  $second-calculation: calc(calc((100vw - #{$content-width} + #{$spacing-unit}) / 2) - 300px);
   margin-right: $first-calculation;
   margin-left: $second-calculation;
 
