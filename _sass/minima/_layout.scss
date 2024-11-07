@@ -428,7 +428,7 @@
 
   @media screen and (min-width: $on-large) {
     $first-calculation: calc((100vw - #{$content-width} + #{$spacing-unit * 2}) / 2);
-    $second-calculation: calc($first-calculation - 300px);
+    $second-calculation: calc(calc((100vw - #{$content-width} + #{$spacing-unit * 2}) / 2) - 300px);
     margin-right: $first-calculation;
     margin-left: $second-calculation;
   }
