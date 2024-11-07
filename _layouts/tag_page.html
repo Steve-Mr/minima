@@ -1,0 +1,23 @@
+---
+layout: base
+---
+<div id="tags">
+    {% assign sorted_tags = site.tags | sort %}
+    <p>
+        {% for tag in sorted_tags %}
+        <a class="post-tag" href="{{ site.baseurl }}/tag/{{ tag[0] | slugify }}">{{ tag[0] }}</a>
+        {% endfor %}
+    </p>
+</div>
+<h3>#{{ page.tag }}</h3>
+<ul>
+    {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+
+    {% for post in page.posts %}
+    <li>
+        <div class="post-meta-container">
+            <span class="post-meta">{{ post.date | date: date_format }}</span>
+            <a class="archive-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </div>
+        {% endfor %}
+</ul>

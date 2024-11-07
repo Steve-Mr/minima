@@ -6,7 +6,14 @@ layout: base
 
   {{ content }}
 
-
+  <div id="tags">
+    {% assign sorted_tags = site.tags | sort %}
+            <p>
+            {% for tag in sorted_tags %}
+                <a class="post-tag" href="{{ site.baseurl }}/tag/{{ tag[0] | slugify }}">{{ tag[0] }}</a>
+            {% endfor %}
+            </p>
+    </div>
 
   {% assign posts = site.posts %}
 
