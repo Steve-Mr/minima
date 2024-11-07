@@ -195,8 +195,6 @@
   }
 }
 
-
-
 /**
  * Page content
  */
@@ -263,11 +261,13 @@
  * Posts
  */
 .post-header {
+  flex: 1;
   margin-bottom: $spacing-unit;
 }
 
 .post-title,
 .post-content h1 {
+  flex: 1; /* 页面内容自动占据剩余空间 */
   @include relative-font-size(2.625);
   letter-spacing: -1px;
   line-height: 1.15;
@@ -279,6 +279,15 @@
 
 .post-content {
   margin-bottom: $spacing-unit;
+  flex: 1; /* 页面内容自动占据剩余空间 */
+
+  max-width: calc(#{$content-width} - (#{$spacing-unit}));
+  @extend %clearfix;
+
+  @media screen and (min-width: $on-large) {
+    max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
+  }
+
 
   h1, h2, h3, h4, h5, h6 { margin-top: $spacing-unit }
 
@@ -360,24 +369,34 @@
 }
 
 #toc {
-  font-family: 'Noto Sans SC', sans-serif;
-  position: fixed;
+  flex: 0 0 250px; /* 固定宽度 */
+  position: sticky;
   left: 20px; /* 调整左边距 */
   top: 50px; /* 调整上边距 */
-  max-width: 300px; /* 设置最大宽度 */
+  max-width: 250px; /* 设置最大宽度 */
   max-height: calc(100vh - 100px); /* 调整最大高度 */
   overflow-y: auto; /* 添加滚动条 */
   white-space: normal; /* 自动换行 */
+  list-style-position: inside;
+  z-index: 1;
+
+  min-height: 1px; /* 确保最小高度为 0 */
+  min-width: 250px; /* 确保始终占据 250px 的宽度 */
 }
 
-/* 可以根据需要修改样式 */
 #toc ul {
-  list-style-type: none;
-  padding: 0;
+  // list-style-type: disc; /* 一级项目使用圆点 */
+  margin-left: 15px; /* 减少缩进 */
 }
 
 #toc ul ul {
-  margin-left: 20px;
+  // list-style-type: circle; /* 二级项目使用空心圆 */
+  margin-left: 15px; /* 减少缩进 */
+}
+
+#toc ul ul ul {
+  // list-style-type: square; /* 三级项目使用方块 */
+  margin-left: 15px; /* 自定义缩进 */
 }
 
 #toc a {
@@ -395,5 +414,26 @@
 @media screen and (min-width: $on-large) {
   .one-half {
     width: calc(50% - (#{$spacing-unit} / 2));
+  }
+}
+
+.post-wrapper {
+  display: flex; /* 使用 Flexbox 布局 */
+  gap: 20px; /* 设置子元素之间的间距 */
+
+  $first-calculation: calc((100vw - #{$content-width} + #{$spacing-unit}) / 2);
+  $second-calculation: calc($first-calculation - 300px);
+  margin-right: $first-calculation;
+  margin-left: $second-calculation;
+
+  @media screen and (min-width: $on-large) {
+    $first-calculation: calc((100vw - #{$content-width} + #{$spacing-unit * 2}) / 2);
+    $second-calculation: calc($first-calculation - 300px);
+    margin-right: $first-calculation;
+    margin-left: $second-calculation;
+  }
+
+  @media screen and (max-width: $on-large) {
+    flex-direction: column; /* 当屏幕宽度较小时，变为垂直布局 */
   }
 }

@@ -61,8 +61,8 @@ $on-large:         $on-laptop !default;
   "minima/custom-styles"     // Hook to override existing styles.
 ;
 
-@media screen and (max-width: $on-palm), (max-width: 800px) {
-  .toc {
-    display: none;
-  }
-}
+// @media screen and (max-width: $on-palm), (max-width: 800px) {
+//   .toc {
+//     display: none;
+//   }
+// }
