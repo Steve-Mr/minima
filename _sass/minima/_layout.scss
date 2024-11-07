@@ -279,7 +279,7 @@
 
 .post-content {
   margin-bottom: $spacing-unit;
-  flex: 1; /* 页面内容自动占据剩余空间 */
+  // flex: 1; /* 页面内容自动占据剩余空间 */
 
   max-width: calc(#{$content-width} - (#{$spacing-unit}));
   @extend %clearfix;
@@ -368,9 +368,16 @@
   line-height: 1.4;
 }
 
+.toc-placeholder {
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+}
+
 #toc {
   flex: 0 0 250px; /* 固定宽度 */
   position: sticky;
+  flex-shrink: 0;
   left: 20px; /* 调整左边距 */
   top: 50px; /* 调整上边距 */
   max-width: 250px; /* 设置最大宽度 */
@@ -380,7 +387,8 @@
   list-style-position: inside;
   z-index: 1;
 
-  min-height: 1px; /* 确保最小高度为 0 */
+  width: 250px;
+  height: 100%;
   min-width: 250px; /* 确保始终占据 250px 的宽度 */
 }
 
@@ -420,6 +428,7 @@
 .post-wrapper {
   display: flex; /* 使用 Flexbox 布局 */
   gap: 20px; /* 设置子元素之间的间距 */
+  flex-direction: row;
 
   $first-calculation: calc((100vw - #{$content-width} + #{$spacing-unit}) / 2);
   $second-calculation: calc(calc((100vw - #{$content-width} + #{$spacing-unit}) / 2) - 300px);
@@ -435,5 +444,9 @@
 
   @media screen and (max-width: $on-large) {
     flex-direction: column; /* 当屏幕宽度较小时，变为垂直布局 */
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: $spacing-unit * .5;
+    padding-left: $spacing-unit * .5;
   }
 }
