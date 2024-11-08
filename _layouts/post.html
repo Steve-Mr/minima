@@ -49,13 +49,18 @@ layout: post_base
           </div>
   </div>
 
+
+  {%- if site.disqus.shortname -%}
   <div class="wrapper">
-    {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}
-    {%- endif -%}
   </div>
 
-  {%- include custom-post.html -%}
+  {%- endif -%}
+
+  <div class="wrapper">
+    {%- include custom-post.html -%}
+  </div>
+
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
