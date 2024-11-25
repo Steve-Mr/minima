@@ -2,22 +2,22 @@
 
 // Define defaults for each variable.
 
-.noto-serif-sc-regular {
-  font-family: "Noto Serif SC", serif;
-  font-weight: 400;
-  font-style: normal;
-}
+// .noto-serif-sc-regular {
+//   font-family: "Noto Serif SC", serif;
+//   font-weight: 500;
+//   font-style: normal;
+// }
 
-.noto-serif-sc-bold {
-  font-family: "Noto Serif SC", serif;
-  font-weight: 700;
-  font-style: normal;
-}
+// .noto-serif-sc-bold {
+//   font-family: "Noto Serif SC", serif;
+//   font-weight: 700;
+//   font-style: normal;
+// }
 
 $base-font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif !default;
 $code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
 $base-font-size:   16px !default;
-$base-font-weight: 400 !default;
+$base-font-weight: 500 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.9 !default;
 
