@@ -13,12 +13,12 @@ layout: post_base
         </time>
         {%- if page.modified_date -%}
         ~
-        {%- assign mdate = page.modified_date | date_to_xmlschema -%}
+        {%- assign mdate = page.sitemap.lastmod | date_to_xmlschema -%}
         <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
           {{ mdate | date: date_format }}
         </time>
-        &nbsp; {{ content | strip_html | number_of_words: "auto" }} 字
         {%- endif -%}
+        &nbsp; {{ content | strip_html | number_of_words: "auto" }} 字
         {%- if page.author -%}
         • {% for author in page.author %}
         <span itemprop="author" itemscope itemtype="http://schema.org/Person">
