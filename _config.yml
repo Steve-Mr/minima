@@ -31,7 +31,7 @@ plugins:
 paginate: 2
 
 # Pagination settings for /
-paginate_dir: /page:num/
+paginate_dir: /blog/page:num/
 
 # Pagination settings for /archive
 archive_paginate_dir: /archive/page:num/
