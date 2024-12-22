@@ -19,7 +19,10 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: $base-font-weight #{$base-font-size}/#{$base-line-height} 'Noto Serif SC', 'Noto Serif', serif;
+  font-weight: $base-font-weight;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font: 'Noto Serif', 'Noto Serif SC', serif;
   font-family: 'Noto Serif', serif, 'Noto Serif SC';
   color: $text-color;
   background-color: $background-color;

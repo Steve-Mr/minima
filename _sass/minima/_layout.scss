@@ -13,7 +13,7 @@
 
 .site-title {
   @include relative-font-size(1.625);
-  font-weight: 300;
+  font-weight: 800;
   letter-spacing: -1px;
   margin-bottom: 0;
   float: left;
@@ -237,7 +237,7 @@
 .post-link {
   display: block;
   @include relative-font-size(1.5);
-  // font-weight: bold; /* 设置字体为粗体 */
+  font-weight: 300; /* 设置字体为粗体 */
 }
 
 .archive-link {
@@ -245,7 +245,6 @@
   @include relative-font-size(1.2);
   // font-weight: bold; /* 设置字体为粗体 */
   text-decoration: none;
-
 }
 
 .post-meta-container {
@@ -355,10 +354,8 @@
 }
 
 .excerpt-text {
-  font-size: 16px; /* 比正文字号小一号 */
-  @include relative-font-size(1.0);
+  font-size: $base-font-size;
   color: $brand-color;
-  /* 如果需要设置其他样式，比如字体颜色、行高等，也可以在这里添加 */
 }
 .excerpt-text > h1,
 .excerpt-text > h2 {
