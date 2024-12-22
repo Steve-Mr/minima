@@ -20,7 +20,7 @@ dl, dd, ol, ul, figure {
  */
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} 'Noto Serif SC', sans-serif;
-  font-family: 'Noto Serif SC', sans-serif;
+  font-family: sans-serif, 'Noto Serif SC';
   color: $text-color;
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
