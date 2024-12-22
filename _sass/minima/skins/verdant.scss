@@ -1,0 +1,202 @@
+@charset "utf-8";
+
+// verdant skin
+// ==============
+// Created by Sander Voerman <mailto:sander@savoerman.nl> using the verdant
+// color scheme by Ethan Schoonover <https://ethanschoonover.com/verdant>.
+
+// This style sheet implements three options for the minima.skin setting:
+// "verdant-light" for light mode, "verdant-dark" for dark mode, and
+// "verdant" for light or dark mode depending on user preference.
+$verdant-is-auto: true !default;
+$verdant-is-dark: false !default;
+
+
+// Color scheme
+// ------------
+// The inline comments show the canonical L*a*b values for each color.
+
+$verdant-base03:   #1b2b2d;  // 15 -10 -10 深林绿
+$verdant-base02:   #223b3d;  // 20 -10 -10 次深林绿
+$verdant-base01:   #536d6f;  // 45 -05 -10 浅苔藓灰
+$verdant-base00:   #637c7e;  // 50 -05 -07 次浅苔藓灰
+$verdant-base0:    #7f9e9f;  // 60 -04 -03 浅薄荷青
+$verdant-base1:    #95b2b3;  // 65 -03 -02 淡薄荷青
+$verdant-base2:    #e5f2e1;  // 92  00  10 淡奶白绿
+$verdant-base3:    #f3fdf1;  // 97  00  10 柔光白
+$verdant-yellow:   #b48e00;  // 60  10  55 栗金黄
+$verdant-orange:   #d46b36;  // 50  35  40 橙枫叶
+$verdant-red:      #c73835;  // 50  60  35 山茶红
+$verdant-magenta:  #bb5093;  // 50  50 -05 紫薇粉
+$verdant-violet:   #6b74b3;  // 50  10 -35 蓝紫罗兰
+$verdant-blue:     #3075a8;  // 55 -10 -30 湖水蓝
+$verdant-cyan:     #3b9f94;  // 60 -25 -05 松石青
+$verdant-green:    #6c8f00;  // 60 -20  50 苔绿
+
+
+
+// Mixed colors
+// ------------
+// While not part of the original verdant base tones, these derived tones
+// are meant to replicate the visual style of the classic skin. They should
+// not be used in cases where sufficiently contrasting colors are needed.
+
+$verdant-light-mix1:  mix($verdant-base1, $verdant-base3);
+$verdant-light-mix2:  mix($verdant-blue, $verdant-base00);
+$verdant-light-mix3:  mix($verdant-base2, $verdant-base3);
+$verdant-dark-mix1:   mix($verdant-base01, $verdant-base03);
+$verdant-dark-mix2:   mix($verdant-blue, $verdant-base0);
+$verdant-dark-mix3:   mix($verdant-base02, $verdant-base03);
+
+
+// Mode selection
+// --------------
+
+$verdant-mono3:    $verdant-base3;
+$verdant-mono2:    $verdant-base2;
+$verdant-mono1:    $verdant-base1;
+$verdant-mono00:   $verdant-base00;
+$verdant-mono01:   $verdant-base01;
+$verdant-mix1:     $verdant-light-mix1;
+$verdant-mix2:     $verdant-light-mix2;
+$verdant-mix3:     $verdant-light-mix3;
+
+@if $verdant-is-dark {
+  $verdant-mono3:  $verdant-base03;
+  $verdant-mono2:  $verdant-base02;
+  $verdant-mono1:  $verdant-base01;
+  $verdant-mono00: $verdant-base0;
+  $verdant-mono01: $verdant-base1;
+  $verdant-mix1:   $verdant-dark-mix1;
+  $verdant-mix2:   $verdant-dark-mix2;
+  $verdant-mix3:   $verdant-dark-mix3;
+}
+
+@if $verdant-is-auto {
+  :root {
+    --verdant-mono3:  #{$verdant-base3};
+    --verdant-mono2:  #{$verdant-base2};
+    --verdant-mono1:  #{$verdant-base1};
+    --verdant-mono00: #{$verdant-base00};
+    --verdant-mono01: #{$verdant-base01};
+    --verdant-mix1:   #{$verdant-light-mix1};
+    --verdant-mix2:   #{$verdant-light-mix2};
+    --verdant-mix3:   #{$verdant-light-mix3};
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --verdant-mono3:  #{$verdant-base03};
+      --verdant-mono2:  #{$verdant-base02};
+      --verdant-mono1:  #{$verdant-base01};
+      --verdant-mono00: #{$verdant-base0};
+      --verdant-mono01: #{$verdant-base1};
+      --verdant-mix1:   #{$verdant-dark-mix1};
+      --verdant-mix2:   #{$verdant-dark-mix2};
+      --verdant-mix3:   #{$verdant-dark-mix3};
+    }
+  }
+
+  $verdant-mono3:  var(--verdant-mono3);
+  $verdant-mono2:  var(--verdant-mono2);
+  $verdant-mono1:  var(--verdant-mono1);
+  $verdant-mono00: var(--verdant-mono00);
+  $verdant-mono01: var(--verdant-mono01);
+  $verdant-mix1:   var(--verdant-mix1);
+  $verdant-mix2:   var(--verdant-mix2);
+  $verdant-mix3:   var(--verdant-mix3);
+}
+
+
+// Minima color variables
+// ----------------------
+
+$brand-color:           $verdant-mono1 !default;
+$brand-color-light:     $verdant-mix1 !default;
+$brand-color-dark:      $verdant-mono00 !default;
+
+$site-title-color:      $verdant-mono00 !default;
+
+$text-color:            $verdant-mono01 !default;
+$background-color:      $verdant-mono3 !default;
+$code-background-color: $verdant-mono2 !default;
+
+$link-base-color:       $verdant-blue !default;
+$link-visited-color:    $verdant-mix2 !default;
+$link-hover-color:      $verdant-mono00 !default;
+
+$border-color-01:       $brand-color-light !default;
+$border-color-02:       $verdant-mono1 !default;
+$border-color-03:       $verdant-mono00 !default;
+
+$table-text-color:      $verdant-mono00 !default;
+$table-zebra-color:     $verdant-mix3 !default;
+$table-header-bg-color: $verdant-mono2 !default;
+$table-header-border:   $verdant-mono1 !default;
+$table-border-color:    $verdant-mono1 !default;
+
+
+// Syntax highlighting styles
+// --------------------------
+
+.highlight {
+  .c     { color: $verdant-mono1; font-style: italic } // Comment
+  .err   { color: $verdant-red } // Error
+  .k     { color: $verdant-mono01; font-weight: bold } // Keyword
+  .o     { color: $verdant-mono01; font-weight: bold } // Operator
+  .cm    { color: $verdant-mono1; font-style: italic } // Comment.Multiline
+  .cp    { color: $verdant-mono1; font-weight: bold } // Comment.Preproc
+  .c1    { color: $verdant-mono1; font-style: italic } // Comment.Single
+  .cs    { color: $verdant-mono1; font-weight: bold; font-style: italic } // Comment.Special
+  .gd    { color: $verdant-red } // Generic.Deleted
+  .gd .x { color: $verdant-red } // Generic.Deleted.Specific
+  .ge    { color: $verdant-mono00; font-style: italic } // Generic.Emph
+  .gr    { color: $verdant-red } // Generic.Error
+  .gh    { color: $verdant-mono1 } // Generic.Heading
+  .gi    { color: $verdant-green } // Generic.Inserted
+  .gi .x { color: $verdant-green } // Generic.Inserted.Specific
+  .go    { color: $verdant-mono00 } // Generic.Output
+  .gp    { color: $verdant-mono00 } // Generic.Prompt
+  .gs    { color: $verdant-mono01; font-weight: bold } // Generic.Strong
+  .gu    { color: $verdant-mono1 } // Generic.Subheading
+  .gt    { color: $verdant-red } // Generic.Traceback
+  .kc    { color: $verdant-mono01; font-weight: bold } // Keyword.Constant
+  .kd    { color: $verdant-mono01; font-weight: bold } // Keyword.Declaration
+  .kp    { color: $verdant-mono01; font-weight: bold } // Keyword.Pseudo
+  .kr    { color: $verdant-mono01; font-weight: bold } // Keyword.Reserved
+  .kt    { color: $verdant-violet; font-weight: bold } // Keyword.Type
+  .m     { color: $verdant-cyan } // Literal.Number
+  .s     { color: $verdant-magenta } // Literal.String
+  .na    { color: $verdant-cyan } // Name.Attribute
+  .nb    { color: $verdant-blue } // Name.Builtin
+  .nc    { color: $verdant-violet; font-weight: bold } // Name.Class
+  .no    { color: $verdant-cyan } // Name.Constant
+  .ni    { color: $verdant-violet } // Name.Entity
+  .ne    { color: $verdant-violet; font-weight: bold } // Name.Exception
+  .nf    { color: $verdant-blue; font-weight: bold } // Name.Function
+  .nn    { color: $verdant-mono00 } // Name.Namespace
+  .nt    { color: $verdant-blue } // Name.Tag
+  .nv    { color: $verdant-cyan } // Name.Variable
+  .ow    { color: $verdant-mono01; font-weight: bold } // Operator.Word
+  .w     { color: $verdant-mono1 } // Text.Whitespace
+  .mf    { color: $verdant-cyan } // Literal.Number.Float
+  .mh    { color: $verdant-cyan } // Literal.Number.Hex
+  .mi    { color: $verdant-cyan } // Literal.Number.Integer
+  .mo    { color: $verdant-cyan } // Literal.Number.Oct
+  .sb    { color: $verdant-magenta } // Literal.String.Backtick
+  .sc    { color: $verdant-magenta } // Literal.String.Char
+  .sd    { color: $verdant-magenta } // Literal.String.Doc
+  .s2    { color: $verdant-magenta } // Literal.String.Double
+  .se    { color: $verdant-magenta } // Literal.String.Escape
+  .sh    { color: $verdant-magenta } // Literal.String.Heredoc
+  .si    { color: $verdant-magenta } // Literal.String.Interpol
+  .sx    { color: $verdant-magenta } // Literal.String.Other
+  .sr    { color: $verdant-green } // Literal.String.Regex
+  .s1    { color: $verdant-magenta } // Literal.String.Single
+  .ss    { color: $verdant-magenta } // Literal.String.Symbol
+  .bp    { color: $verdant-mono1 } // Name.Builtin.Pseudo
+  .vc    { color: $verdant-cyan } // Name.Variable.Class
+  .vg    { color: $verdant-cyan } // Name.Variable.Global
+  .vi    { color: $verdant-cyan } // Name.Variable.Instance
+  .il    { color: $verdant-cyan } // Literal.Number.Integer.Long
+}

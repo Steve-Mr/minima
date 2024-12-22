@@ -1,0 +1,203 @@
+@charset "utf-8";
+
+// twilight skin
+// ==============
+// Created by Sander Voerman <mailto:sander@savoerman.nl> using the twilight
+// color scheme by Ethan Schoonover <https://ethanschoonover.com/twilight>.
+
+// This style sheet implements three options for the minima.skin setting:
+// "twilight-light" for light mode, "twilight-dark" for dark mode, and
+// "twilight" for light or dark mode depending on user preference.
+$twilight-is-auto: true !default;
+$twilight-is-dark: false !default;
+
+
+// Color scheme
+// ------------
+// The inline comments show the canonical L*a*b values for each color.
+$twilight-base03:   #3e2723;  // 20  25  20 深棕色（背景主色）
+$twilight-base02:   #5d4037;  // 30  20  20 浓咖色
+$twilight-base01:   #8d6e63;  // 50  10  10 棕灰色
+$twilight-base00:   #a1887f;  // 60  05  05 浅咖灰
+$twilight-base0:    #d7ccc8;  // 85  00  05 浅米色（文字次色）
+$twilight-base1:    #c3a99f;  // 75  07  05 浅棕色（更深的前景色）
+$twilight-base2:    #fff5e1;  // 98  05  15 淡米黄色（背景高光）
+$twilight-base3:    #ebe2d8;  // 90  03  10 米白色（柔和背景色）
+
+$twilight-yellow:   #fbc02d;  // 80  30  70 暖黄色（高亮）
+$twilight-orange:   #f57f17;  // 75  45  65 橙色（警告）
+$twilight-red:      #e64a19;  // 70  60  50 红砖色（错误）
+$twilight-magenta:  #ad1457;  // 55  65 -10 紫红色（强调）
+$twilight-violet:   #6a1b9a;  // 50  30 -50 紫色（链接强调）
+$twilight-blue:     #1565c0;  // 60 -05 -45 深蓝色（主要交互色）
+$twilight-cyan:     #00bfa5;  // 65 -40  05 青绿色（辅助交互色）
+$twilight-green:    #2e7d32;  // 55 -20  50 深绿色（成功）
+
+
+
+
+// Mixed colors
+// ------------
+// While not part of the original twilight base tones, these derived tones
+// are meant to replicate the visual style of the classic skin. They should
+// not be used in cases where sufficiently contrasting colors are needed.
+
+$twilight-light-mix1:  mix($twilight-base1, $twilight-base3);
+$twilight-light-mix2:  mix($twilight-blue, $twilight-base00);
+$twilight-light-mix3:  mix($twilight-base2, $twilight-base3);
+$twilight-dark-mix1:   mix($twilight-base01, $twilight-base03);
+$twilight-dark-mix2:   mix($twilight-blue, $twilight-base0);
+$twilight-dark-mix3:   mix($twilight-base02, $twilight-base03);
+
+
+// Mode selection
+// --------------
+
+$twilight-mono3:    $twilight-base3;
+$twilight-mono2:    $twilight-base2;
+$twilight-mono1:    $twilight-base1;
+$twilight-mono00:   $twilight-base00;
+$twilight-mono01:   $twilight-base01;
+$twilight-mix1:     $twilight-light-mix1;
+$twilight-mix2:     $twilight-light-mix2;
+$twilight-mix3:     $twilight-light-mix3;
+
+@if $twilight-is-dark {
+  $twilight-mono3:  $twilight-base03;
+  $twilight-mono2:  $twilight-base02;
+  $twilight-mono1:  $twilight-base01;
+  $twilight-mono00: $twilight-base0;
+  $twilight-mono01: $twilight-base1;
+  $twilight-mix1:   $twilight-dark-mix1;
+  $twilight-mix2:   $twilight-dark-mix2;
+  $twilight-mix3:   $twilight-dark-mix3;
+}
+
+@if $twilight-is-auto {
+  :root {
+    --twilight-mono3:  #{$twilight-base3};
+    --twilight-mono2:  #{$twilight-base2};
+    --twilight-mono1:  #{$twilight-base1};
+    --twilight-mono00: #{$twilight-base00};
+    --twilight-mono01: #{$twilight-base01};
+    --twilight-mix1:   #{$twilight-light-mix1};
+    --twilight-mix2:   #{$twilight-light-mix2};
+    --twilight-mix3:   #{$twilight-light-mix3};
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --twilight-mono3:  #{$twilight-base03};
+      --twilight-mono2:  #{$twilight-base02};
+      --twilight-mono1:  #{$twilight-base01};
+      --twilight-mono00: #{$twilight-base0};
+      --twilight-mono01: #{$twilight-base1};
+      --twilight-mix1:   #{$twilight-dark-mix1};
+      --twilight-mix2:   #{$twilight-dark-mix2};
+      --twilight-mix3:   #{$twilight-dark-mix3};
+    }
+  }
+
+  $twilight-mono3:  var(--twilight-mono3);
+  $twilight-mono2:  var(--twilight-mono2);
+  $twilight-mono1:  var(--twilight-mono1);
+  $twilight-mono00: var(--twilight-mono00);
+  $twilight-mono01: var(--twilight-mono01);
+  $twilight-mix1:   var(--twilight-mix1);
+  $twilight-mix2:   var(--twilight-mix2);
+  $twilight-mix3:   var(--twilight-mix3);
+}
+
+
+// Minima color variables
+// ----------------------
+
+$brand-color:           $twilight-mono1 !default;
+$brand-color-light:     $twilight-mix1 !default;
+$brand-color-dark:      $twilight-mono00 !default;
+
+$site-title-color:      $twilight-mono00 !default;
+
+$text-color:            $twilight-mono01 !default;
+$background-color:      $twilight-mono3 !default;
+$code-background-color: $twilight-mono2 !default;
+
+$link-base-color:       $twilight-blue !default;
+$link-visited-color:    $twilight-mix2 !default;
+$link-hover-color:      $twilight-mono00 !default;
+
+$border-color-01:       $brand-color-light !default;
+$border-color-02:       $twilight-mono1 !default;
+$border-color-03:       $twilight-mono00 !default;
+
+$table-text-color:      $twilight-mono00 !default;
+$table-zebra-color:     $twilight-mix3 !default;
+$table-header-bg-color: $twilight-mono2 !default;
+$table-header-border:   $twilight-mono1 !default;
+$table-border-color:    $twilight-mono1 !default;
+
+
+// Syntax highlighting styles
+// --------------------------
+
+.highlight {
+  .c     { color: $twilight-mono1; font-style: italic } // Comment
+  .err   { color: $twilight-red } // Error
+  .k     { color: $twilight-mono01; font-weight: bold } // Keyword
+  .o     { color: $twilight-mono01; font-weight: bold } // Operator
+  .cm    { color: $twilight-mono1; font-style: italic } // Comment.Multiline
+  .cp    { color: $twilight-mono1; font-weight: bold } // Comment.Preproc
+  .c1    { color: $twilight-mono1; font-style: italic } // Comment.Single
+  .cs    { color: $twilight-mono1; font-weight: bold; font-style: italic } // Comment.Special
+  .gd    { color: $twilight-red } // Generic.Deleted
+  .gd .x { color: $twilight-red } // Generic.Deleted.Specific
+  .ge    { color: $twilight-mono00; font-style: italic } // Generic.Emph
+  .gr    { color: $twilight-red } // Generic.Error
+  .gh    { color: $twilight-mono1 } // Generic.Heading
+  .gi    { color: $twilight-green } // Generic.Inserted
+  .gi .x { color: $twilight-green } // Generic.Inserted.Specific
+  .go    { color: $twilight-mono00 } // Generic.Output
+  .gp    { color: $twilight-mono00 } // Generic.Prompt
+  .gs    { color: $twilight-mono01; font-weight: bold } // Generic.Strong
+  .gu    { color: $twilight-mono1 } // Generic.Subheading
+  .gt    { color: $twilight-red } // Generic.Traceback
+  .kc    { color: $twilight-mono01; font-weight: bold } // Keyword.Constant
+  .kd    { color: $twilight-mono01; font-weight: bold } // Keyword.Declaration
+  .kp    { color: $twilight-mono01; font-weight: bold } // Keyword.Pseudo
+  .kr    { color: $twilight-mono01; font-weight: bold } // Keyword.Reserved
+  .kt    { color: $twilight-violet; font-weight: bold } // Keyword.Type
+  .m     { color: $twilight-cyan } // Literal.Number
+  .s     { color: $twilight-magenta } // Literal.String
+  .na    { color: $twilight-cyan } // Name.Attribute
+  .nb    { color: $twilight-blue } // Name.Builtin
+  .nc    { color: $twilight-violet; font-weight: bold } // Name.Class
+  .no    { color: $twilight-cyan } // Name.Constant
+  .ni    { color: $twilight-violet } // Name.Entity
+  .ne    { color: $twilight-violet; font-weight: bold } // Name.Exception
+  .nf    { color: $twilight-blue; font-weight: bold } // Name.Function
+  .nn    { color: $twilight-mono00 } // Name.Namespace
+  .nt    { color: $twilight-blue } // Name.Tag
+  .nv    { color: $twilight-cyan } // Name.Variable
+  .ow    { color: $twilight-mono01; font-weight: bold } // Operator.Word
+  .w     { color: $twilight-mono1 } // Text.Whitespace
+  .mf    { color: $twilight-cyan } // Literal.Number.Float
+  .mh    { color: $twilight-cyan } // Literal.Number.Hex
+  .mi    { color: $twilight-cyan } // Literal.Number.Integer
+  .mo    { color: $twilight-cyan } // Literal.Number.Oct
+  .sb    { color: $twilight-magenta } // Literal.String.Backtick
+  .sc    { color: $twilight-magenta } // Literal.String.Char
+  .sd    { color: $twilight-magenta } // Literal.String.Doc
+  .s2    { color: $twilight-magenta } // Literal.String.Double
+  .se    { color: $twilight-magenta } // Literal.String.Escape
+  .sh    { color: $twilight-magenta } // Literal.String.Heredoc
+  .si    { color: $twilight-magenta } // Literal.String.Interpol
+  .sx    { color: $twilight-magenta } // Literal.String.Other
+  .sr    { color: $twilight-green } // Literal.String.Regex
+  .s1    { color: $twilight-magenta } // Literal.String.Single
+  .ss    { color: $twilight-magenta } // Literal.String.Symbol
+  .bp    { color: $twilight-mono1 } // Name.Builtin.Pseudo
+  .vc    { color: $twilight-cyan } // Name.Variable.Class
+  .vg    { color: $twilight-cyan } // Name.Variable.Global
+  .vi    { color: $twilight-cyan } // Name.Variable.Instance
+  .il    { color: $twilight-cyan } // Literal.Number.Integer.Long
+}

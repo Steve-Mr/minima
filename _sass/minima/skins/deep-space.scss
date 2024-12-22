@@ -1,0 +1,201 @@
+@charset "utf-8";
+
+// space skin
+// ==============
+// Created by Sander Voerman <mailto:sander@savoerman.nl> using the space
+// color scheme by Ethan Schoonover <https://ethanschoonover.com/space>.
+
+// This style sheet implements three options for the minima.skin setting:
+// "space-light" for light mode, "space-dark" for dark mode, and
+// "space" for light or dark mode depending on user preference.
+$space-is-auto: false !default;
+$space-is-dark: true !default;
+
+
+// Color scheme
+// ------------
+// The inline comments show the canonical L*a*b values for each color.
+$space-base03:   #091A2A;  //  深蓝色，接近黑色
+$space-base02:   #122B40;  //  深蓝色
+$space-base01:   #264769;  //  较深的蓝色
+$space-base00:   #396591;  //  中等深度的蓝色
+$space-base0:    #5C8DCB;  //  较浅的蓝色
+$space-base1:    #80A8FA;  //  浅蓝色
+$space-base2:    #181818;  //  接近黑色的深灰色
+$space-base3:    #282828;  //  深灰色
+$space-yellow:   #FFA500;  //  橙色
+$space-orange:   #FF6347;  //  较亮的橙色
+$space-red:      #DC143C;  //  深红色
+$space-magenta:  #DA70D6;  //  淡紫色
+$space-violet:   #8A2BE2;  //  紫色
+$space-blue:     #4169E1;  //  皇家蓝
+$space-cyan:     #00FFFF;  //  青色
+$space-green:    #7FFF00;  //  鲜绿色
+
+
+
+// Mixed colors
+// ------------
+// While not part of the original space base tones, these derived tones
+// are meant to replicate the visual style of the classic skin. They should
+// not be used in cases where sufficiently contrasting colors are needed.
+
+$space-light-mix1:  mix($space-base1, $space-base3);
+$space-light-mix2:  mix($space-blue, $space-base00);
+$space-light-mix3:  mix($space-base2, $space-base3);
+$space-dark-mix1:   mix($space-base01, $space-base03);
+$space-dark-mix2:   mix($space-blue, $space-base0);
+$space-dark-mix3:   mix($space-base02, $space-base03);
+
+
+// Mode selection
+// --------------
+
+$space-mono3:    $space-base3;
+$space-mono2:    $space-base2;
+$space-mono1:    $space-base1;
+$space-mono00:   $space-base00;
+$space-mono01:   $space-base01;
+$space-mix1:     $space-light-mix1;
+$space-mix2:     $space-light-mix2;
+$space-mix3:     $space-light-mix3;
+
+@if $space-is-dark {
+  $space-mono3:  $space-base03;
+  $space-mono2:  $space-base02;
+  $space-mono1:  $space-base01;
+  $space-mono00: $space-base0;
+  $space-mono01: $space-base1;
+  $space-mix1:   $space-dark-mix1;
+  $space-mix2:   $space-dark-mix2;
+  $space-mix3:   $space-dark-mix3;
+}
+
+@if $space-is-auto {
+  :root {
+    --space-mono3:  #{$space-base3};
+    --space-mono2:  #{$space-base2};
+    --space-mono1:  #{$space-base1};
+    --space-mono00: #{$space-base00};
+    --space-mono01: #{$space-base01};
+    --space-mix1:   #{$space-light-mix1};
+    --space-mix2:   #{$space-light-mix2};
+    --space-mix3:   #{$space-light-mix3};
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --space-mono3:  #{$space-base03};
+      --space-mono2:  #{$space-base02};
+      --space-mono1:  #{$space-base01};
+      --space-mono00: #{$space-base0};
+      --space-mono01: #{$space-base1};
+      --space-mix1:   #{$space-dark-mix1};
+      --space-mix2:   #{$space-dark-mix2};
+      --space-mix3:   #{$space-dark-mix3};
+    }
+  }
+
+  $space-mono3:  var(--space-mono3);
+  $space-mono2:  var(--space-mono2);
+  $space-mono1:  var(--space-mono1);
+  $space-mono00: var(--space-mono00);
+  $space-mono01: var(--space-mono01);
+  $space-mix1:   var(--space-mix1);
+  $space-mix2:   var(--space-mix2);
+  $space-mix3:   var(--space-mix3);
+}
+
+
+// Minima color variables
+// ----------------------
+
+$brand-color:           $space-mono1 !default;
+$brand-color-light:     $space-mix1 !default;
+$brand-color-dark:      $space-mono00 !default;
+
+$site-title-color:      $space-mono00 !default;
+
+$text-color:            $space-mono01 !default;
+$background-color:      $space-mono3 !default;
+$code-background-color: $space-mono2 !default;
+
+$link-base-color:       $space-blue !default;
+$link-visited-color:    $space-mix2 !default;
+$link-hover-color:      $space-mono00 !default;
+
+$border-color-01:       $brand-color-light !default;
+$border-color-02:       $space-mono1 !default;
+$border-color-03:       $space-mono00 !default;
+
+$table-text-color:      $space-mono00 !default;
+$table-zebra-color:     $space-mix3 !default;
+$table-header-bg-color: $space-mono2 !default;
+$table-header-border:   $space-mono1 !default;
+$table-border-color:    $space-mono1 !default;
+
+
+// Syntax highlighting styles
+// --------------------------
+
+.highlight {
+  .c     { color: $space-mono1; font-style: italic } // Comment
+  .err   { color: $space-red } // Error
+  .k     { color: $space-mono01; font-weight: bold } // Keyword
+  .o     { color: $space-mono01; font-weight: bold } // Operator
+  .cm    { color: $space-mono1; font-style: italic } // Comment.Multiline
+  .cp    { color: $space-mono1; font-weight: bold } // Comment.Preproc
+  .c1    { color: $space-mono1; font-style: italic } // Comment.Single
+  .cs    { color: $space-mono1; font-weight: bold; font-style: italic } // Comment.Special
+  .gd    { color: $space-red } // Generic.Deleted
+  .gd .x { color: $space-red } // Generic.Deleted.Specific
+  .ge    { color: $space-mono00; font-style: italic } // Generic.Emph
+  .gr    { color: $space-red } // Generic.Error
+  .gh    { color: $space-mono1 } // Generic.Heading
+  .gi    { color: $space-green } // Generic.Inserted
+  .gi .x { color: $space-green } // Generic.Inserted.Specific
+  .go    { color: $space-mono00 } // Generic.Output
+  .gp    { color: $space-mono00 } // Generic.Prompt
+  .gs    { color: $space-mono01; font-weight: bold } // Generic.Strong
+  .gu    { color: $space-mono1 } // Generic.Subheading
+  .gt    { color: $space-red } // Generic.Traceback
+  .kc    { color: $space-mono01; font-weight: bold } // Keyword.Constant
+  .kd    { color: $space-mono01; font-weight: bold } // Keyword.Declaration
+  .kp    { color: $space-mono01; font-weight: bold } // Keyword.Pseudo
+  .kr    { color: $space-mono01; font-weight: bold } // Keyword.Reserved
+  .kt    { color: $space-violet; font-weight: bold } // Keyword.Type
+  .m     { color: $space-cyan } // Literal.Number
+  .s     { color: $space-magenta } // Literal.String
+  .na    { color: $space-cyan } // Name.Attribute
+  .nb    { color: $space-blue } // Name.Builtin
+  .nc    { color: $space-violet; font-weight: bold } // Name.Class
+  .no    { color: $space-cyan } // Name.Constant
+  .ni    { color: $space-violet } // Name.Entity
+  .ne    { color: $space-violet; font-weight: bold } // Name.Exception
+  .nf    { color: $space-blue; font-weight: bold } // Name.Function
+  .nn    { color: $space-mono00 } // Name.Namespace
+  .nt    { color: $space-blue } // Name.Tag
+  .nv    { color: $space-cyan } // Name.Variable
+  .ow    { color: $space-mono01; font-weight: bold } // Operator.Word
+  .w     { color: $space-mono1 } // Text.Whitespace
+  .mf    { color: $space-cyan } // Literal.Number.Float
+  .mh    { color: $space-cyan } // Literal.Number.Hex
+  .mi    { color: $space-cyan } // Literal.Number.Integer
+  .mo    { color: $space-cyan } // Literal.Number.Oct
+  .sb    { color: $space-magenta } // Literal.String.Backtick
+  .sc    { color: $space-magenta } // Literal.String.Char
+  .sd    { color: $space-magenta } // Literal.String.Doc
+  .s2    { color: $space-magenta } // Literal.String.Double
+  .se    { color: $space-magenta } // Literal.String.Escape
+  .sh    { color: $space-magenta } // Literal.String.Heredoc
+  .si    { color: $space-magenta } // Literal.String.Interpol
+  .sx    { color: $space-magenta } // Literal.String.Other
+  .sr    { color: $space-green } // Literal.String.Regex
+  .s1    { color: $space-magenta } // Literal.String.Single
+  .ss    { color: $space-magenta } // Literal.String.Symbol
+  .bp    { color: $space-mono1 } // Name.Builtin.Pseudo
+  .vc    { color: $space-cyan } // Name.Variable.Class
+  .vg    { color: $space-cyan } // Name.Variable.Global
+  .vi    { color: $space-cyan } // Name.Variable.Instance
+  .il    { color: $space-cyan } // Literal.Number.Integer.Long
+}
