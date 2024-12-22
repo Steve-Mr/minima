@@ -357,6 +357,7 @@
 .excerpt-text {
   font-size: 16px; /* 比正文字号小一号 */
   @include relative-font-size(1.0);
+  color: $brand-color;
   /* 如果需要设置其他样式，比如字体颜色、行高等，也可以在这里添加 */
 }
 .excerpt-text > h1,
@@ -366,6 +367,7 @@
 .excerpt-text > blockquote {
   @include relative-font-size(1.0);
   line-height: 1.4;
+  color: $brand-color;
 }
 
 .toc-placeholder {
