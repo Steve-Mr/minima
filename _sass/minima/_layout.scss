@@ -390,6 +390,11 @@
   width: 250px;
   height: 100%;
   min-width: 250px; /* 确保始终占据 250px 的宽度 */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#toc::-webkit-scrollbar {
+  display: none;
 }
 
 #toc ul {
