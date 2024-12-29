@@ -88,16 +88,15 @@ layout: post_base
         }
       });
 
-      // 移除所有 toc 链接的高亮状态
-      tocLinks.forEach(link => {
-        link.classList.remove('active');
-      });
-
       // 高亮当前滚动位置对应的 toc 链接
       let currentLink = null;
       if (currentId) {
         currentLink = document.querySelector(`.toc a[href="#${currentId}"]`);
         if (currentLink) {
+          // 移除所有 toc 链接的高亮状态
+          tocLinks.forEach(link => {
+            link.classList.remove('active');
+          });
           currentLink.classList.add('active');
         }
       }
