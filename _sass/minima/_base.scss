@@ -13,8 +13,6 @@ dl, dd, ol, ul, figure {
 
 }
 
-
-
 /**
  * Basic styling
  */
@@ -22,8 +20,8 @@ body {
   font-weight: $base-font-weight;
   font-size: $base-font-size;
   line-height: $base-line-height;
-  font: 'Noto Serif', 'Noto Serif SC', serif;
-  font-family: 'Noto Serif', 'Noto Serif SC', serif;
+  font: 'mojikumi', 'Noto Serif', 'Noto Serif SC', serif;
+  font-family: 'mojikumi', 'Noto Serif', 'Noto Serif SC', serif;
   color: $text-color;
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
@@ -39,7 +37,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Noto Sans SC', sans-serif;
+    font-family: 'Zhudou Sans', 'Noto Sans SC', sans-serif;
     font-feature-settings: "palt" 0;}
 
 /**

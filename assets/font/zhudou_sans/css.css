@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Zhudou Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(ZhudouSans-Light.woff2) format('woff2');
+  }
+@font-face {
+    font-family: 'Zhudou Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(ZhudouSans-Medium.woff2) format('woff2');
+  }
+@font-face {
+    font-family: 'Zhudou Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(ZhudouSans-Bold.woff2) format('woff2');
+  }
