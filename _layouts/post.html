@@ -67,16 +67,17 @@ layout: post_base
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 
   <script>
-    const contextItems = 5; // 上下文各显示 3 个条目
+    const contextItems = 5; // 上下文各显示 5 个条目
+
     // 获取所有标题元素和 toc 链接元素
-    const headings = document.querySelectorAll('.post-content h2, .post-content h3, .post-content h4 .post-content h5');
+    const headings = document.querySelectorAll('.post-content h2, .post-content h3, .post-content h4, .post-content h5');
     const tocLinks = document.querySelectorAll('.toc a');
 
     // 获取 toc 容器元素
     const tocContainer = document.querySelector('.toc');
 
     // 监听页面滚动事件
-    window.addEventListener('scroll', () => {
+    function handleScroll() {
       let currentId = '';
 
       // 遍历所有标题元素，判断当前滚动位置是否在该标题区域内
@@ -126,7 +127,23 @@ layout: post_base
           block: 'nearest'
         });
       }
-    });
+    }
+
+    // 检查屏幕宽度并决定是否启用滚动监听器
+    function toggleScrollListener() {
+      if (window.innerWidth <= 768) { // 当屏幕宽度小于等于 768px 时
+        window.removeEventListener('scroll', handleScroll); // 移除滚动监听器
+      } else {
+        window.addEventListener('scroll', handleScroll); // 添加滚动监听器
+      }
+    }
+
+    // 初始加载时检查屏幕宽度
+    toggleScrollListener();
+
+    // 监听窗口大小变化事件
+    window.addEventListener('resize', toggleScrollListener);
+
     let lastScrollY = window.scrollY;
   </script>
 

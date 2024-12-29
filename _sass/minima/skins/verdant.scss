@@ -42,10 +42,10 @@ $verdant-green:    #6c8f00;  // 60 -20  50 苔绿
 // not be used in cases where sufficiently contrasting colors are needed.
 
 $verdant-light-mix1:  mix($verdant-base1, $verdant-base3);
-$verdant-light-mix2:  mix($verdant-blue, $verdant-base00);
+$verdant-light-mix2:  mix($verdant-violet, $verdant-base00);
 $verdant-light-mix3:  mix($verdant-base2, $verdant-base3);
 $verdant-dark-mix1:   mix($verdant-base01, $verdant-base03);
-$verdant-dark-mix2:   mix($verdant-blue, $verdant-base0);
+$verdant-dark-mix2:   mix($verdant-violet, $verdant-base0);
 $verdant-dark-mix3:   mix($verdant-base02, $verdant-base03);
 
 
@@ -121,7 +121,8 @@ $text-color:            $verdant-mono01 !default;
 $background-color:      $verdant-mono3 !default;
 $code-background-color: $verdant-mono2 !default;
 
-$link-base-color:       $verdant-blue !default;
+$link-base-color:       $verdant-mix2 !default;
+$link-highlight-color:  $verdant-orange !default;
 $link-visited-color:    $verdant-mix2 !default;
 $link-hover-color:      $verdant-mono00 !default;
 

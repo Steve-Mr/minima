@@ -409,18 +409,19 @@
 
 #toc a {
   text-decoration: none;
+  color: $link-base-color;
 }
 
 #toc a:hover {
   text-decoration: underline;
+  color: $link-hover-color;
 }
 
-.toc a.active {
-  color: #007bff;
+#toc a.active {
+  color: $link-highlight-color;
   font-weight: bold;
+  // text-decoration: dashed underline overline;
 }
-
-
 
 /**
  * Grid helpers
