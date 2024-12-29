@@ -7,9 +7,9 @@ layout: post_base
     <header class="post-header">
       <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
       <p class="post-meta">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%} 
-        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished"> 
-          {{ page.date | date: date_format }} 
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ page.date | date: date_format }}
         </time>
         {%- if page.modified_date -%}
         ~
@@ -67,47 +67,67 @@ layout: post_base
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const tocLinks = document.querySelectorAll(".toc a");
-    const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
- 
-    const scrollToView = (element) => {
-        if (element) {
-            const tocContainer = document.querySelector(".toc");
-            const rect = element.getBoundingClientRect();
-            const tocRect = tocContainer.getBoundingClientRect();
- 
-            if (rect.top < tocRect.top || rect.bottom > tocRect.bottom) {
-                element.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center",
-                    inline: "nearest"
-                });
-            }
+    const contextItems = 5; // 上下文各显示 3 个条目
+    // 获取所有标题元素和 toc 链接元素
+    const headings = document.querySelectorAll('.post-content h2, .post-content h3, .post-content h4 .post-content h5');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    // 获取 toc 容器元素
+    const tocContainer = document.querySelector('.toc');
+
+    // 监听页面滚动事件
+    window.addEventListener('scroll', () => {
+      let currentId = '';
+
+      // 遍历所有标题元素，判断当前滚动位置是否在该标题区域内
+      headings.forEach(heading => {
+        const rect = heading.getBoundingClientRect();
+        if (rect.top < window.innerHeight / 2 && rect.bottom > 0) {
+          currentId = heading.id;
         }
-    };
- 
-    const highlightTocWithScroll = () => {
-        let currentSection = sections[0];
-        for (const section of sections) {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= 150 && rect.bottom > 150) {
-                currentSection = section;
-                break;
-            }
+      });
+
+      // 移除所有 toc 链接的高亮状态
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+
+      // 高亮当前滚动位置对应的 toc 链接
+      let currentLink = null;
+      if (currentId) {
+        currentLink = document.querySelector(`.toc a[href="#${currentId}"]`);
+        if (currentLink) {
+          currentLink.classList.add('active');
         }
- 
-        tocLinks.forEach(link => {
-            const isActive = link.getAttribute("href") === `#${currentSection.id}`;
-            link.classList.toggle("active", isActive);
-            if (isActive) {
-                scrollToView(link);
-            }
+      }
+
+      // 使用 scrollIntoView() 滚动 toc 列表
+      if (currentLink) {
+        // 获取当前链接在 TOC 列表中的索引
+        const currentIndex = Array.from(tocLinks).indexOf(currentLink);
+
+        // 计算目标索引
+        let targetIndex = currentIndex;
+        const isScrollingDown = window.scrollY > lastScrollY; // 判断滚动方向
+        lastScrollY = window.scrollY; // 更新上次滚动位置
+
+        if (isScrollingDown) {
+          targetIndex = Math.min(currentIndex + contextItems, tocLinks.length - 1); // 向下滚动
+        } else {
+          targetIndex = Math.max(currentIndex - contextItems, 0); // 向上滚动
+        }
+
+        // 获取目标链接元素
+        const targetLink = tocLinks[targetIndex];
+
+        // 滚动到目标链接
+        targetLink.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest'
         });
-    };
- 
-    window.addEventListener("scroll", highlightTocWithScroll);
- });
-</script>
- 
+      }
+    });
+    let lastScrollY = window.scrollY;
+  </script>
+
 </article>
