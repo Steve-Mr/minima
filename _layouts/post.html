@@ -65,4 +65,49 @@ layout: post_base
 
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tocLinks = document.querySelectorAll(".toc a");
+    const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+ 
+    const scrollToView = (element) => {
+        if (element) {
+            const tocContainer = document.querySelector(".toc");
+            const rect = element.getBoundingClientRect();
+            const tocRect = tocContainer.getBoundingClientRect();
+ 
+            if (rect.top < tocRect.top || rect.bottom > tocRect.bottom) {
+                element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                    inline: "nearest"
+                });
+            }
+        }
+    };
+ 
+    const highlightTocWithScroll = () => {
+        let currentSection = sections[0];
+        for (const section of sections) {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 150 && rect.bottom > 150) {
+                currentSection = section;
+                break;
+            }
+        }
+ 
+        tocLinks.forEach(link => {
+            const isActive = link.getAttribute("href") === `#${currentSection.id}`;
+            link.classList.toggle("active", isActive);
+            if (isActive) {
+                scrollToView(link);
+            }
+        });
+    };
+ 
+    window.addEventListener("scroll", highlightTocWithScroll);
+ });
+</script>
+ 
 </article>
