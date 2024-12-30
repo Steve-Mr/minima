@@ -10,7 +10,4 @@ gem 'jekyll-paginate'
 gem 'jekyll-sitemap'
 gem 'jekyll-seo-tag'
 gem 'jekyll-tagging'
-
-group :jekyll_plugins do
-    gem 'jekyll-lazy-load-image', require: 'jekyll-lazy-load-image/auto-execution'
-  end
+gem 'jekyll-loading-lazy'

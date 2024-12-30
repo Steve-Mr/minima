@@ -28,6 +28,7 @@ plugins:
   - jekyll-toc
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-loading-lazy
 
 paginate: 2
 
@@ -47,13 +48,6 @@ tag_page_dir: tag
 header_pages:
   - list.html
   - about.md
-
-lazy_load_image:
-  src_attr_name: data-src # [required] You need to specify the attributes to be saved for lazy loading
-  class_attr_values: # [optional] if you want to add custom class value, please add values
-    - lazy
-  additional_attrs: # [optional] if you want to add attributes, please add key value
-    "data-size": auto
 
 # Set to `true` to show excerpts on the homepage.
 show_excerpts: true
