@@ -108,8 +108,7 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  color: $heading-color;
-  font-weight: 500;
+  font-weight: $base-font-weight;
 }
 
 
@@ -127,7 +126,6 @@ a {
 
   &:hover {
     color: $link-hover-color;
-    text-decoration: underline;
   }
 
   .social-media-list &:hover {
@@ -148,7 +146,7 @@ a {
   border-left: 4px solid $border-color-01;
   line-height: 1.6;
   padding-left: $spacing-unit * .5;
-  @include relative-font-size(1.05);
+  @include relative-font-size(1.125);
   font-style: italic;
   font-family: $base-font-family;
   > :last-child {
@@ -168,50 +166,35 @@ a {
 pre,
 code {
   font-family: $code-font-family;
+  font-size: 0.9375em;
+  border: 1px solid $border-color-01;
+  border-radius: 3px;
   background-color: $code-background-color;
+}
 
-  @include media-query($on-palm) {
-    font-family: monospace;
-  }
+code {
+  padding: 1px 5px;
 }
 
 pre {
   padding: 8px 12px;
-  font-size: 15px;
-  line-height: 1.4;
-  color: $heading-color;
   overflow-x: auto;
 
   > code {
-    display: inline-block;
-    width: 100%;
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 
-div.highlight, figure.highlight {
+.highlight {
+  border-radius: 3px;
+  background: $code-background-color;
   @extend %vertical-rhythm;
-  border: 1px solid $border-color-01;
-  border-radius: 3px;
-  pre { margin: 0 }
-  table, tbody, th, tr, td {
-    margin: 0;
-    padding: 0;
-    border: 0
+
+  .highlighter-rouge & {
+    background: $code-background-color;
   }
-  .lineno, .gl { text-align: right }
-}
-
-figure.highlight {
-  table { margin: -8px -12px -14px }
-  td.gutter { border-right: 1px solid $border-color-01 }
-  td.code { width: 100% }
-}
-
-code.highlighter-rouge {
-  padding: 1px 5px;
-  font-size: 14px;
-  border: 1px solid $border-color-01;
-  border-radius: 3px;
 }
 
 
@@ -220,14 +203,17 @@ code.highlighter-rouge {
  * Wrapper
  */
 .wrapper {
-  max-width: $content-width;
-  margin: 0 auto;
-  padding: 0 $spacing-unit;
+  max-width: calc(#{$content-width} - (#{$spacing-unit}));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-unit * .5;
+  padding-left: $spacing-unit * .5;
   @extend %clearfix;
 
-  @media screen and (max-width: $on-medium) {
-    padding-right: $spacing-unit * 0.6;
-    padding-left: $spacing-unit * 0.6;
+  @media screen and (min-width: $on-large) {
+    max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
   }
 }
 

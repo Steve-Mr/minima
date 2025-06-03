@@ -31,7 +31,7 @@ layout: base
           {{ post.title | escape }}
         </a>
       </h3>
-      {%- if site.minima.show_excerpts -%}
+      {%- if site.show_excerpts -%}
       <div class="excerpt-text">
         {{ post.excerpt }}
       </div>
@@ -60,4 +60,5 @@ layout: base
 
 
   {%- endif -%}
+
 </div>
