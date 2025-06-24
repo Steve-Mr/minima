@@ -1,13 +1,17 @@
 ---
 layout: base
 ---
-<div id="tags">
-    {% assign sorted_tags = site.tags | sort %}
-    <p>
-        {% for tag in sorted_tags %}
-        <a class="post-tag" href="{{ site.baseurl }}/tag/{{ tag[0] | slugify }}">{{ tag[0] }}</a>
-        {% endfor %}
-    </p>
+<div class="tags-wrapper">
+    <input type="checkbox" id="tags-toggle-tagpage" class="tags-toggle-checkbox">
+    <div id="tags" class="tags-collapsible">
+        {% assign sorted_tags = site.tags | sort %}
+        <p>
+            {% for tag in sorted_tags %}
+            <a class="post-tag" href="{{ site.baseurl }}/tag/{{ tag[0] | slugify }}">{{ tag[0] }}</a>
+            {% endfor %}
+        </p>
+    </div>
+    <label for="tags-toggle-tagpage" class="tags-toggle-label"></label>
 </div>
 <h3>#{{ page.tag }}</h3>
 <ul>

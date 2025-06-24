@@ -462,3 +462,49 @@
     padding-left: $spacing-unit * .5;
   }
 }
+
+
+/* Tags
+------------------------------------------------- */
+.tags-wrapper {
+  position: relative;
+  margin-bottom: 2rem; // 为下方的按钮留出空间
+}
+
+// 隐藏 checkbox 本身
+.tags-toggle-checkbox {
+  display: none;
+}
+
+// 标签容器的折叠样式
+.tags-collapsible {
+  max-height: 2.8rem; // 限制高度，大约为一行标签的高度
+  overflow: hidden;
+  transition: max-height 0.25s ease-in-out;
+}
+
+// 当 checkbox 被选中时，展开标签容器
+.tags-toggle-checkbox:checked + .tags-collapsible {
+  max-height: 50rem; // 一个足够大的值，确保所有标签都能显示
+}
+
+// “显示更多/收起”按钮的样式
+.tags-toggle-label {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  color: $link-base-color;
+  font-size: $small-font-size;
+  padding-top: 0.5rem;
+  
+  &:after {
+    content: "显示更多 ▾";
+  }
+}
+
+// 当 checkbox 被选中时，改变按钮的文本
+.tags-toggle-checkbox:checked ~ .tags-toggle-label:after {
+  content: "收起 ▲";
+}

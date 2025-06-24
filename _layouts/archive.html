@@ -6,7 +6,9 @@ layout: base
 
   {{ content }}
 
-  <div id="tags">
+<div class="tags-wrapper">
+  <input type="checkbox" id="tags-toggle-archive" class="tags-toggle-checkbox">
+  <div id="tags" class="tags-collapsible">
     {% assign sorted_tags = site.tags | sort %}
             <p>
             {% for tag in sorted_tags %}
@@ -14,6 +16,8 @@ layout: base
             {% endfor %}
             </p>
     </div>
+  <label for="tags-toggle-archive" class="tags-toggle-label"></label>
+</div>
 
   {% assign posts = site.posts %}
 
