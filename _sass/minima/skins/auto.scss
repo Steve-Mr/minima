@@ -23,6 +23,7 @@ $lm-code-background-color: #eeeeee !default;
 $lm-link-base-color:       #2a7ae2 !default;
 $lm-link-visited-color:    darken($lm-link-base-color, 15%) !default;
 $lm-link-hover-color:      $lm-text-color !default;
+$lm-link-highlight-color:  darken($lm-link-base-color, 10%) !default; // 或者直接使用 #f66a0a (橙色)
 
 $lm-border-color-01:       $lm-brand-color-light !default;
 $lm-border-color-02:       lighten($lm-brand-color, 35%) !default;
@@ -119,6 +120,7 @@ $dm-code-background-color: #212121 !default;
 $dm-link-base-color:       #79b8ff !default;
 $dm-link-visited-color:    $dm-link-base-color !default;
 $dm-link-hover-color:      $dm-text-color !default;
+$dm-link-highlight-color:  lighten($dm-link-base-color, 5%) !default;
 
 $dm-border-color-01:       $dm-brand-color-dark !default;
 $dm-border-color-02:       $dm-brand-color-light !default;
@@ -223,6 +225,7 @@ $code-background-color: $lm-code-background-color;
 $link-base-color: $lm-link-base-color;
 $link-visited-color: $lm-link-visited-color;
 $link-hover-color: $lm-link-hover-color;
+$link-highlight-color: $lm-link-highlight-color;
 
 $border-color-01: $lm-border-color-01;
 $border-color-02: $lm-border-color-02;
@@ -253,6 +256,7 @@ $table-border-color: $lm-table-border-color;
     --minima-link-base-color: #{$lm-link-base-color};
     --minima-link-visited-color: #{$lm-link-visited-color};
     --minima-link-hover-color: #{$lm-link-hover-color};
+    --minima-link-highlight-color: #{$lm-link-highlight-color};
 
     --minima-border-color-01: #{$lm-border-color-01};
     --minima-border-color-02: #{$lm-border-color-02};
@@ -282,6 +286,7 @@ $table-border-color: $lm-table-border-color;
       --minima-link-base-color: #{$dm-link-base-color};
       --minima-link-visited-color: #{$dm-link-visited-color};
       --minima-link-hover-color: #{$dm-link-hover-color};
+      --minima-link-highlight-color: #{$dm-link-highlight-color};
 
       --minima-border-color-01: #{$dm-border-color-01};
       --minima-border-color-02: #{$dm-border-color-02};
@@ -310,6 +315,7 @@ $table-border-color: $lm-table-border-color;
   $link-base-color: var(--minima-link-base-color);
   $link-visited-color: var(--minima-link-visited-color);
   $link-hover-color: var(--minima-link-hover-color);
+  $link-highlight-color: var(--minima-link-highlight-color);
 
   $border-color-01: var(--minima-border-color-01);
   $border-color-02: var(--minima-border-color-02);
@@ -339,6 +345,7 @@ $table-border-color: $lm-table-border-color;
   $link-base-color: $dm-link-base-color;
   $link-visited-color: $dm-link-visited-color;
   $link-hover-color: $dm-link-hover-color;
+  $link-highlight-color: $dm-link-highlight-color;
 
   $border-color-01: $dm-border-color-01;
   $border-color-02: $dm-border-color-02;
