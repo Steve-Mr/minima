@@ -5,6 +5,8 @@ author:
   copyright-year: 2020
 sass:
   quiet_deps: true
+  silence_deprecation:
+    - import
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
