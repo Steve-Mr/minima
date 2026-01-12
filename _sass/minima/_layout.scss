@@ -238,7 +238,9 @@
 .post-link {
   display: block;
   @include relative-font-size(1.5);
-  font-weight: 300; /* 设置字体为粗体 */
+  font-weight: 500; /* 设置字体为粗体 */
+  // font-weight: bold;
+  text-decoration: none;
 }
 
 .archive-link {
@@ -358,6 +360,7 @@
   font-size: $base-font-size;
   font-weight: 500;
   font-family: 'Noto Serif', 'Noto Serif SC';
+  margin-left: 10px;
 }
 .excerpt-text > h1,
 .excerpt-text > h2 {
@@ -508,4 +511,20 @@
 // 当 checkbox 被选中时，改变按钮的文本
 .tags-toggle-checkbox:checked ~ .tags-toggle-label:after {
   content: "收起 ▲";
+}
+
+// 强制首页 (.home) 下的所有链接颜色与正文一致
+.home {
+  a {
+    color: $text-color; // 使用 Minima 现有的全局变量，自动适配深色/浅色模式
+
+    &:visited {
+      color: $text-color;
+    }
+
+    // 保持鼠标悬停时的高亮颜色（为了交互体验，建议保留）
+    &:hover {
+      color: $text-color;
+    }
+  }
 }

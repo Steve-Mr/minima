@@ -37,7 +37,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Zhudou Sans', 'Noto Sans SC', sans-serif;
+    // font-family: 'Zhudou Sans', 'Noto Sans SC', sans-serif;
+    font-family: 'mojikumi', 'Noto Serif', 'Noto Serif SC', serif;
     font-feature-settings: "palt" 0;}
 
 /**
@@ -117,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
  */
 a {
   color: $link-base-color;
-  // text-decoration: none;
+  text-decoration: none;
 
   &:visited {
     color: $link-visited-color;
